@@ -1,12 +1,11 @@
 
----
 
-```md
+
+
 # 🛡️ ProcGuard
+ProcGuard is a modern, lightweight and responsive system monitoring dashboard built with **React**, **Tailwind CSS**, **Redux Toolkit**, and **React Router v6**. It enables real-time system insights with agent-based monitoring, focusing on CPU, RAM, and process management per device.
 
-**ProcGuard** is a modern, lightweight and responsive system monitoring dashboard built with **React**, **Tailwind CSS**, **Redux Toolkit**, and **React Router v6**. It enables real-time system insights with agent-based monitoring, focusing on CPU, RAM, and process management per device.
 
----
 
 ## 🚀 Features
 
@@ -18,10 +17,7 @@
 - 🔐 **Auth Pages** – Fully styled login & register pages, ready for OAuth.
 - 📱 **Responsive Design** – Mobile-first layout, smooth transitions.
 
----
 
-
----
 
 ## 🧠 Tech Stack
 
@@ -33,32 +29,8 @@
 | Auth Ready   | Custom + OAuth support |
 | Icons        | `react-icons`          |
 
----
 
-## 🔧 Getting Started
 
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/your-username/procguard.git
-cd procguard
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Run the app
-
-```bash
-npm run dev
-```
-
-Visit `http://localhost:5173`
-
----
 
 ## 📦 To-Do
 
@@ -68,17 +40,14 @@ Visit `http://localhost:5173`
 - [ ] Admin dashboard for agent management
 - [ ] Realtime system metrics
 
----
+
 
 ## 👤 Author
 
 Made with ❤️ by [Kadir Özer Öztürk](https://www.linkedin.com/in/kadirozerozturk/)
 
----
+
 
 ## 📜 License
 
 This project is open-source and available under the [MIT License](LICENSE).
-```
-
----
