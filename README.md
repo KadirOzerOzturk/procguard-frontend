@@ -1,70 +1,84 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+```md
+# 🛡️ ProcGuard
 
-In the project directory, you can run:
+**ProcGuard** is a modern, lightweight and responsive system monitoring dashboard built with **React**, **Tailwind CSS**, **Redux Toolkit**, and **React Router v6**. It enables real-time system insights with agent-based monitoring, focusing on CPU, RAM, and process management per device.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 🔍 **System Overview** – Global monitoring of all connected agents.
+- 🧠 **Agent Detail View** – Per-agent dashboard with Logs, Warnings, and Processes.
+- 🪟 **Resizable Sidebar** – Drag to resize, with full Tailwind theme support.
+- 📡 **Agent Communication** – Dynamic agent list pulled from a Redux store.
+- 🌗 **Dark Mode UI** – Tailwind-based modern dark theme.
+- 🔐 **Auth Pages** – Fully styled login & register pages, ready for OAuth.
+- 📱 **Responsive Design** – Mobile-first layout, smooth transitions.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧠 Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Layer        | Technology             |
+|--------------|------------------------|
+| Frontend     | React + Tailwind CSS   |
+| State Mgmt   | Redux Toolkit          |
+| Routing      | React Router v6        |
+| Auth Ready   | Custom + OAuth support |
+| Icons        | `react-icons`          |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🔧 Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Clone the repo
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/your-username/procguard.git
+cd procguard
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 2. Install dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+```
 
-## Learn More
+### 3. Run the app
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run dev
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Visit `http://localhost:5173`
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📦 To-Do
 
-### Analyzing the Bundle Size
+- [ ] Backend agent connection via WebSocket or REST API
+- [ ] JWT authentication + secure routing
+- [ ] Role-based access control
+- [ ] Admin dashboard for agent management
+- [ ] Realtime system metrics
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 👤 Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Made with ❤️ by [Kadir Özer Öztürk](https://www.linkedin.com/in/kadirozerozturk/)
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📜 License
 
-### Deployment
+This project is open-source and available under the [MIT License](LICENSE).
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
