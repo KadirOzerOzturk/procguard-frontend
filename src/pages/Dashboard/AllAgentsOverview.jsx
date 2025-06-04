@@ -1,4 +1,4 @@
-import React, { use, useEffect } from "react";
+import React, {  useEffect } from "react";
 import TopStats from "./components/TopStats";
 import UsageChart from "./components/UsageChart";
 import AlertTrends from "./components/AlertTrends";
@@ -32,7 +32,7 @@ useEffect(() => {
   };
 
   fetchData();
-}, []);
+}, [agents, dispatch]);
 
   return (
     <div className="p-6 text-light">
