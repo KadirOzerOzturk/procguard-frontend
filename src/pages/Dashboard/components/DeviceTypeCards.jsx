@@ -33,7 +33,7 @@ export default function DeviceTypeCards() {
       {deviceTypes.map((device) => (
         <div
           key={device.type}
-          className={`flex items-center gap-4 p-4 rounded-xl border ${device.color}`}
+          className={`flex flex-col justify-center text-center items-center gap-4 p-4 rounded-xl border ${device.color}`}
         >
           <div className="p-3 rounded-full bg-dark-contrast">
             {device.icon}

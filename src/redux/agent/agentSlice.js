@@ -5,29 +5,7 @@ import { fetchAgents } from "./agentThunks";
 const agentSlice = createSlice({
   name: "agent",
   initialState: {
-    agents: [
-       {
-      id: "1",
-      hostname: "DESKTOP-001",
-      ip: "192.168.1.101",
-      status: "online",
-      cpu: 72,
-      ram: 60,
-      os: "Windows 10",
-      uptime: "5 days, 3 hours",
-    },
-    {
-      id: "2",
-      hostname: "LAPTOP-002",
-      ip: "192.168.1.102",  
-      status: "offline",
-      cpu: 23,
-      ram: 45,
-      os: "macOS Monterey",
-      uptime: "N/A",
-
-    },
-    ],
+    agents: [],
     selectedAgentId: null,
     loading: false,
     error: null,

@@ -1,17 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { selectAgent } from "../../redux/agent/agentSlice"
+import { addAgent, selectAgent } from "../../redux/agent/agentSlice"
 import AddAgentForm from "./agent/AddAgentForm";
 import { LuPlus } from "react-icons/lu";
+import { toast } from "sonner";
+import api from "../../utils/api";
 
 export default function Agents() {
   const dispatch = useDispatch();
   const { agents } = useSelector((state) => state.agent);
   const [isOpenAddAgentForm, setIsOpenAddAgentForm] = useState(false);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+  useEffect(() => {
+    const fetchAgents = async (pageNum) => {
+      try {
+        const response = await api.get(`/agents?page=${pageNum}`);
+        if (response.status !== 200) {
+          toast.error("Failed to fetch agents. Please try again later.");
+        }
+        const data = await response.json();
+        
+        data.agents.forEach(agent => {
+          dispatch(addAgent(agent));
+        });
+        setTotalPages(data.totalPages || 1);
+      } catch (error) {
+        console.error("Failed to fetch agents:", error);
+        toast.error("Failed to fetch agents. Please try again later.");
+      }
+    };
+    fetchAgents(page);
+  }, [dispatch, page]);
+
   const handleSelect = (id) => {
     dispatch(selectAgent(id));
   };
+
+  const handlePrev = () => setPage((p) => Math.max(1, p - 1));
+  const handleNext = () => setPage((p) => Math.min(totalPages, p + 1));
 
   return (
     <div className="text-light">
@@ -28,6 +57,7 @@ export default function Agents() {
       {agents.length === 0 ? (
         <p>No agents connected.</p>
       ) : (
+        <>
         <table className="w-full text-sm border border-dark-contrast rounded-lg overflow-hidden">
           <thead className="bg-dark-soft text-left text-light-soft">
             <tr>
@@ -45,8 +75,8 @@ export default function Agents() {
                 key={agent.id}
                 className="border-t border-dark-contrast hover:bg-dark transition duration-150"
               >
-                <td className="px-4 py-2">{agent.hostname}</td>
-                <td className="px-4 py-2">{agent.ip}</td>
+                <td className="px-4 py-2">{agent.id}</td>
+                <td className="px-4 py-2">{agent.ipAddress}</td>
                 <td
                   className={`px-4 py-2 font-semibold ${
                     agent.status === "online"
@@ -62,7 +92,7 @@ export default function Agents() {
                   <Link
                     to="/dashboard/overview"
                     className="text-primary hover:underline font-medium"
-                    onClick={() => handleSelect(agent.id)}
+                    onClick={(e) => handleSelect(agent.id)}
                   >
                     View
                   </Link>
@@ -71,6 +101,26 @@ export default function Agents() {
             ))}
           </tbody>
         </table>
+        <div className="flex justify-center items-center gap-4 mt-4">
+          <button
+            onClick={handlePrev}
+            disabled={page === 1}
+            className="px-4 py-2 bg-dark-soft rounded disabled:opacity-50"
+          >
+            Prev
+          </button>
+          <span>
+            Page {page} of {totalPages}
+          </span>
+          <button
+            onClick={handleNext}
+            disabled={page === totalPages}
+            className="px-4 py-2 bg-dark-soft rounded disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
+        </>
       )}
     </div>
   );

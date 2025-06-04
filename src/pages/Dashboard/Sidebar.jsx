@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAgent } from "../../redux/agent/agentSlice";
@@ -11,6 +11,8 @@ import {
 import { HiOutlineDesktopComputer } from "react-icons/hi";
 import { IoSettingsOutline } from "react-icons/io5";
 import logo from "../../assets/logo.png"; 
+import { logout } from "../../redux/auth/authSlice";
+import { LuLogOut } from "react-icons/lu";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
@@ -43,7 +45,10 @@ export default function Sidebar() {
     dispatch(selectAgent(id));
     navigate(`/dashboard/agents/${id}`);
   };
-
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
  return (
     <aside
       className="bg-dark-contrast text-light h-screen p-5 flex flex-col border-r border-dark-contrast relative"
@@ -53,13 +58,16 @@ export default function Sidebar() {
       }}
     >
       {/* Logo */}
-      <div className="mb-6">
+      <div className="mb-6 flex items-center gap-2">
         <img
           src={logo}
           alt="Logo"
-          className="w-auto h-8 mb-2 "
+          className="w-auto h-12 "
         />
-       
+        <h1 className="text-xl font-bold text-light">
+          <span className="text-light">ProcGuard</span>
+        </h1>
+
       </div>
       
 
@@ -116,7 +124,7 @@ export default function Sidebar() {
                 }`}
               >
                 <FaMicrochip />
-                <span>{agent.hostname}</span>
+                <span>{agent.id}</span>
               </button>
 
               {selectedAgentId === agent.id && (
@@ -180,6 +188,14 @@ export default function Sidebar() {
           <IoSettingsOutline />
           <span>Settings</span>
         </NavLink>
+        <button
+          onClick={handleLogout}
+          className="flex items-center gap-2 px-2 py-2 rounded text-light-soft hover:text-light w-full text-left"
+          type="button"
+        >
+          <LuLogOut />
+          <span>Logout</span>
+        </button>
         <h1 className="text-xl font-bold mt-6 opacity-65 whitespace-nowrap overflow-hidden text-ellipsis">
         <span className="text-primary">Agent</span> Dashboard
         <span className="text-secondary"> v2.0</span>
